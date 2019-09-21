@@ -62,3 +62,35 @@ E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\HomeTaskSelen
 E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.dll
 E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.pdb
 E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.engine.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.engine.api.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\NUnit3.TestAdapter.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\NUnit3.TestAdapter.pdb
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\HomeTaskSeleniumProject.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\HomeTaskSeleniumProject.pdb
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Mono.Cecil.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit-agent-x86.exe
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit-agent.exe
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.framework.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\SeleniumExtras.WaitHelpers.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\WebDriver.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit-agent.exe.config
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit-agent-x86.exe.config
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.framework.pdb
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.framework.xml
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\WebDriver.xml
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csproj.CoreCompileInputs.cache
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csproj.CopyComplete
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.dll
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.pdb

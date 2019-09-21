@@ -291,13 +291,16 @@ namespace HomeTaskSeleniumProject.Tests
             Password.SendKeys("admin");
             IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
             btnLogin.Click();
-            IWebElement MenuItemCountries = Browser.FindElement(By.LinkText("Catalog"));
-            MenuItemCountries.Click();
+            IWebElement MenuItemCatalog = Browser.FindElement(By.LinkText("Catalog"));
+            MenuItemCatalog.Click();
             IWebElement addNewProduct = Wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Add New Product")));
             addNewProduct.Click();
+            IWebElement activeRadiobutton = Browser.FindElement(By.XPath("//label/input[contains(@value,'1')]"));
+            activeRadiobutton.Click();
             IWebElement productNameField = Browser.FindElement(By.Name("name[en]"));
             productNameField.Click();
-            productNameField.SendKeys("New Tet Duck");
+            string ProductName = "New Test Duck" + " " + DateTime.Now;
+            productNameField.SendKeys(ProductName);
             IWebElement productCodeField = Browser.FindElement(By.Name("code"));
             productCodeField.Click();
             productCodeField.SendKeys("04092019");
@@ -311,9 +314,13 @@ namespace HomeTaskSeleniumProject.Tests
             quantityField.SendKeys("10");
 
             IWebElement downloadImage = Browser.FindElement(By.Name("new_images[]"));
+            downloadImage.SendKeys("E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
+            //string productLable1 = downloadImage.GetAttribute("baseURI"); //"E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg"
+            //string productLable2 = downloadImage.SetAttribute("baseURI", "E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
             //downloadImage.SendKeys("Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
             // E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\Trump - rubber - duck - Amsterdam - Duck - Store.jpg
             
+
             IWebElement datePickerFrom = Browser.FindElement(By.Name("date_valid_from"));
             datePickerFrom.SendKeys("10092019");
 
@@ -323,10 +330,10 @@ namespace HomeTaskSeleniumProject.Tests
             IWebElement InformationTab = Browser.FindElement(By.XPath("//a[contains(@href,'#tab-information')]"));
             InformationTab.Click();
 
-            IWebElement ManufactureDropdown = Browser.FindElement(By.XPath("//select[contains(@name,'manufacturer_id')]"));
+            IWebElement ManufactureDropdown = Browser.FindElement(By.XPath("//select[contains(@name,'manufacturer_id')]")); //option[contains(@value,'1')]
             ManufactureDropdown.Click();
 
-            IWebElement ManufacturerDropdownValue = ManufactureDropdown.FindElement(By.XPath("//option[contains(@value,'1')]"));
+            IWebElement ManufacturerDropdownValue = ManufactureDropdown.FindElement(By.XPath("//*[@id='tab-information']/table/tbody/tr[1]/td/select/option[2]"));
             ManufacturerDropdownValue.Click();
 
             IWebElement KeywordsField = Browser.FindElement(By.XPath("//input[contains(@name,'keywords')]"));
@@ -347,25 +354,36 @@ namespace HomeTaskSeleniumProject.Tests
             IWebElement PricesTab = Browser.FindElement(By.XPath("//a[contains(@href,'#tab-prices')]"));
             PricesTab.Click();
 
-            IWebElement PurchasePriceField = Browser.FindElement(By.XPath("//input[contains(@name,'meta_description[en]')]"));
+            IWebElement PurchasePriceField = Browser.FindElement(By.XPath("//input[contains(@name,'purchase_price')]"));
             PurchasePriceField.Clear();
-            PurchasePriceField.SendKeys("99,99");
+            PurchasePriceField.SendKeys("99.99");
 
             IWebElement CurrencyDropdown = Browser.FindElement(By.XPath("//option[contains(@value,'USD')]"));
             CurrencyDropdown.Click();
 
             IWebElement PriceUSDField = Browser.FindElement(By.XPath("//input[contains(@name,'prices[USD]')]"));
-            PriceUSDField.Clear();
+            PriceUSDField.Click();
             PriceUSDField.SendKeys("10");
 
             IWebElement SaveButton = Browser.FindElement(By.XPath("//button[contains(@name,'save')]"));
             SaveButton.Click();
+            
 
+
+            List <IWebElement> ItemProductsName = Browser.FindElements(By.XPath("//table[contains(@class,'dataTable')]/tbody/tr/td[3]/a")).ToList();
+            string NNNNN = ItemProductsName[2].GetAttribute("nodeValue");
+            
+
+
+      
+
+            Assert.AreEqual(ProductName, NNNNN);
+            
         }
 
 
 
-         
+
 
     }
 }
