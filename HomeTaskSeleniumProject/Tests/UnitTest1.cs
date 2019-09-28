@@ -8,25 +8,31 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Text;
-
+using HomeTaskSeleniumProject.Pages.AdminPanel.LoginPage;
 
 namespace HomeTaskSeleniumProject.Tests
 {
     public class UnitTest1 : BaseTest 
     {
+        private LoginPage _loginPage;
         [Test]
         public void TestMethod1()
         {
             Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");
 
-            IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
+            _loginPage = new LoginPage(Browser);
+            _loginPage.Login("admin", "admin");
+
+            /*IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
             UserName.SendKeys("admin");
 
             IWebElement Password = Browser.FindElement(By.XPath("//input[contains(@name,'password')]"));
             Password.SendKeys("admin");
 
             IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
-            btnLogin.Click();
+            btnLogin.Click();*/
+
+
 
             Wait.Until(_ => Browser.FindElements(By.XPath("//ul[@id='box-apps-menu']/li/a/span[@class='name']")).Count > 0);
 
@@ -293,6 +299,11 @@ namespace HomeTaskSeleniumProject.Tests
             btnLogin.Click();
             IWebElement MenuItemCatalog = Browser.FindElement(By.LinkText("Catalog"));
             MenuItemCatalog.Click();
+
+            List<IWebElement> ItemProductsNameBefore = Browser.FindElements(By.XPath("//table[contains(@class,'dataTable')]/tbody/tr/td[3]/a")).ToList();
+            List<string> ItemProductsNameTextBefore = ItemProductsNameBefore.Select(_ => _.Text).ToList();
+            int CountBeforeItemProductsNameText = ItemProductsNameTextBefore.Count;
+
             IWebElement addNewProduct = Wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("Add New Product")));
             addNewProduct.Click();
             IWebElement activeRadiobutton = Browser.FindElement(By.XPath("//label/input[contains(@value,'1')]"));
@@ -370,20 +381,11 @@ namespace HomeTaskSeleniumProject.Tests
             
 
 
-            List <IWebElement> ItemProductsName = Browser.FindElements(By.XPath("//table[contains(@class,'dataTable')]/tbody/tr/td[3]/a")).ToList();
-            string NNNNN = ItemProductsName[2].GetAttribute("nodeValue");
-            
-
-
-      
-
-            Assert.AreEqual(ProductName, NNNNN);
-            
+            List <IWebElement> ItemProductsNameAfter = Browser.FindElements(By.XPath("//table[contains(@class,'dataTable')]/tbody/tr/td[3]/a")).ToList();
+            List<string> ItemProductsNameTextAfter = ItemProductsNameAfter.Select(_ => _.Text).ToList();
+            int CountAfterItemProductsNameText = ItemProductsNameTextAfter.Count;
+            Assert.AreEqual(CountAfterItemProductsNameText, CountBeforeItemProductsNameText + 1);
+            CollectionAssert.Contains(ItemProductsNameTextAfter, ProductName);
         }
-
-
-
-
-
     }
 }
