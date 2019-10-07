@@ -78,8 +78,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AdminPanel\Countries\Countries.cs" />
+    <Compile Include="Pages\AdminPanel\Countries\CountriesMap.cs" />
     <Compile Include="Pages\AdminPanel\LoginPage\LoginPage.cs" />
     <Compile Include="Pages\AdminPanel\LoginPage\LoginPageMap.cs" />
+    <Compile Include="Pages\AdminPanel\SideBar\SideBar.cs" />
+    <Compile Include="Pages\AdminPanel\SideBar\SideBarMap.cs" />
     <Compile Include="Tests\BaseTest.cs" />
     <Compile Include="Tests\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,13 +9,18 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using HomeTaskSeleniumProject.Pages.AdminPanel.LoginPage;
+using HomeTaskSeleniumProject.Pages.AdminPanel.Countries;
+
 
 namespace HomeTaskSeleniumProject.Tests
 {
     public class UnitTest1 : BaseTest 
     {
         private LoginPage _loginPage;
-        [Test]
+        private Countries _countries;
+        private CountriesMap _countriesMap;
+        
+        [Test] //Day3  Task7
         public void TestMethod1()
         {
             Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");
@@ -23,25 +28,14 @@ namespace HomeTaskSeleniumProject.Tests
             _loginPage = new LoginPage(Browser);
             _loginPage.Login("admin", "admin");
 
-            /*IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
-            UserName.SendKeys("admin");
-
-            IWebElement Password = Browser.FindElement(By.XPath("//input[contains(@name,'password')]"));
-            Password.SendKeys("admin");
-
-            IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
-            btnLogin.Click();*/
-
-
-
             Wait.Until(_ => Browser.FindElements(By.XPath("//ul[@id='box-apps-menu']/li/a/span[@class='name']")).Count > 0);
 
             List <IWebElement> MainMenuItems = Browser.FindElements(By.XPath("//ul[@id='box-apps-menu']/li/a/span[@class='name']")).ToList();
-
+            
             for (int i = 0; i < MainMenuItems.Count; i++)
             {
                 MainMenuItems = Browser.FindElements(By.XPath("//ul[@id='box-apps-menu']/li/a/span[@class='name']")).ToList();
-                //if (MainMenuItems[i].Text.Equals("Settings") || MainMenuItems[i].Text.Equals("Modules"))  continue;
+                
                 MainMenuItems[i].Click();
                 Wait.Until(_ => Browser.FindElement(By.XPath("//td[@id='content']/h1")).Displayed);
                 List<IWebElement> ChildMenuItems = Browser.FindElements(By.XPath("//ul[@id='box-apps-menu']/li/ul[@class='docs']//span")).ToList();
@@ -66,7 +60,7 @@ namespace HomeTaskSeleniumProject.Tests
         }
 
 
-        [Test]
+        [Test] //Day 3 Task8
         public void TestMethod2()
         {
             Browser.Navigate().GoToUrl("http://localhost/litecart/");    
@@ -75,76 +69,44 @@ namespace HomeTaskSeleniumProject.Tests
             var Products = Browser.FindElements(By.XPath("//li[@class='product column shadow hover-light']")).ToList();
             for (int k = 0; k < Products.Count; k++)
             {
-                var Sticker = Products[k].FindElement(By.XPath("//div[contains(@class,'sticker')]"));
-                Assert.IsTrue(Sticker.Displayed);
-            }           
+                var Stickers = Products[k].FindElements(By.XPath("//div[contains(@class,'sticker')]")).ToList();
+                //Assert.IsTrue(Sticker.Displayed);
+                //Assert.AreEqual(Products.Count, Stickers.Count/*, "Not all products are with stickers"*/);
+               //Assert.IsTrue(Products.SequenceEqual(Stickers), "Not all products are with stickers");
+                Assert.IsTrue(Products.Count.Equals(Stickers.Count), "Not all products are with stickers");
+                
+            }    
+            
         }
 
-        [Test]
+        [Test]  //Day 4 Task9-A
         public void TestMethod3()
         {
-            Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");
-            //login
-            IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
-            UserName.SendKeys("admin");
-            IWebElement Password = Browser.FindElement(By.XPath("//input[contains(@name,'password')]"));
-            Password.SendKeys("admin");
-            //login
-            //open Countries page
-            IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
-            btnLogin.Click();
-            IWebElement MenuItemCountries = Browser.FindElement(By.LinkText("Countries"));
-            MenuItemCountries.Click();
-            //open Countries page
-
-            var rowNames = Browser.FindElements(By.XPath("//table[@class='dataTable']//th")).Select(el => el.Text);
-            var colNameIndex = rowNames.ToList().IndexOf("Name");
-            var rowsText = Browser.FindElements(By.XPath($"//table[@class='dataTable']//td[{colNameIndex + 1}]/a")).Select(el => el.Text).ToList();    
-            var sortedCols = rowsText.OrderBy(t => t).ToList();
-            Assert.IsTrue(sortedCols.SequenceEqual(rowsText), "Countries are not sorted alphabetically");
+            Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");           
+            _loginPage = new LoginPage(Browser);
+            _loginPage.Login("admin", "admin");
+            _countries = new Countries(Browser);
+            _countries.ClickMenuItem("Countries");
+            Assert.IsTrue(_countriesMap.GetSortedCountriesList().SequenceEqual(_countriesMap.GetValuesOfNameColumn()), "Countries are not sorted alphabetically");
         }
 
-        [Test]
+        [Test] //Day 4 Task9-Б, 2
 
         public void TestMethod4()
         {
-            Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");
-            IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
-            UserName.SendKeys("admin");
-            IWebElement Password = Browser.FindElement(By.XPath("//input[contains(@name,'password')]"));
-            Password.SendKeys("admin");
-            IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
-            btnLogin.Click();
-            IWebElement MenuItemCountries = Browser.FindElement(By.LinkText("Countries"));
-            MenuItemCountries.Click();
+            _loginPage = new LoginPage(Browser);
+            _countries = new Countries(Browser);
+            _countriesMap = new CountriesMap(Browser);
 
-            var rowText = Browser.FindElements(By.XPath("//table[@class='dataTable']//th")).Select(el => el.Text);
-            //var colZoneIndex = rowText.ToList().IndexOf("Zone");
-            var zoneIndex = Browser.FindElements(By.XPath("//table[@class='dataTable']//td[6]")).Select(el => Convert.ToInt16(el.Text)).ToList();
-            //var zoneIndexNotZero = zoneIndex.Select(el => !el.Equals("0");
+            Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");            
+            _loginPage.Login("admin", "admin");            
+            _countries.ClickMenuItem("Countries");
+            _countries.CheckZonesAlphabeticalSorted();
+            Assert.IsTrue(_countriesMap.GetListOfZoneNames().SequenceEqual(_countriesMap.GetSortedListOfZoneNames()), "Zones are not sorted alphabetically");
 
-            var zoneIndexNotZero = zoneIndex.Select((value, index) => new { value, index })
-                      .Where(pair => pair.value > 0)
-                      .Select(pair => pair.index + 1)
-                      .ToList();
-
-
-            foreach (var index in zoneIndexNotZero)
-            {
-                Browser.FindElement(By.XPath($"(//table[@class='dataTable']//td[5]/a)[{index}]")).Click();
-
-                var rowNames = Browser.FindElements(By.XPath("//table[@class='dataTable']//th")).Select(el => el.Text);
-                var colNameIndex = rowNames.ToList().IndexOf("Name");
-                var rowsText = Browser.FindElements(By.XPath($"//table[@class='dataTable']//td[{colNameIndex + 1}]")).Select(el => el.Text).ToList();
-                var sortedCols = rowsText.OrderBy(t => t).ToList();
-                Assert.IsTrue(sortedCols.SequenceEqual(rowsText), "Zones are not sorted alphabetically");
-                MenuItemCountries = Browser.FindElement(By.LinkText("Countries"));
-                MenuItemCountries.Click();
-
-            }
         }
 
-        [Test]
+        [Test]  //Day 4 Task 10
 
         public void TestMethod5()
         {
@@ -194,7 +156,7 @@ namespace HomeTaskSeleniumProject.Tests
             });
         }
 
-        [Test]
+        [Test]  //Day 5 Task11
         public void TestMethod6()
         {
             Browser.Navigate().GoToUrl("http://localhost/litecart/");
@@ -270,8 +232,7 @@ namespace HomeTaskSeleniumProject.Tests
             {
                 IWebElement logout = Wait.Until(ExpectedConditions.ElementToBeClickable(By.LinkText("logout")));
                 logout.Click();
-            }
-            
+            }         
 
             //login
             IWebElement loginEmail = Browser.FindElement(By.Name("email"));
@@ -286,17 +247,13 @@ namespace HomeTaskSeleniumProject.Tests
             LogoutProfile();
         }
 
-        [Test]
+        [Test]  //Day 5 Task12
 
         public void TestMethod7()
         {
-            Browser.Navigate().GoToUrl("http://localhost/litecart/admin/");
-            IWebElement UserName = Browser.FindElement(By.XPath("//input[contains(@name,'username')]"));
-            UserName.SendKeys("admin");
-            IWebElement Password = Browser.FindElement(By.XPath("//input[contains(@name,'password')]"));
-            Password.SendKeys("admin");
-            IWebElement btnLogin = Wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath("//button[contains(@type,'submit')]")));
-            btnLogin.Click();
+            _loginPage = new LoginPage(Browser);
+            _loginPage.Login("admin", "admin");
+
             IWebElement MenuItemCatalog = Browser.FindElement(By.LinkText("Catalog"));
             MenuItemCatalog.Click();
 
@@ -326,12 +283,7 @@ namespace HomeTaskSeleniumProject.Tests
 
             IWebElement downloadImage = Browser.FindElement(By.Name("new_images[]"));
             downloadImage.SendKeys("E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
-            //string productLable1 = downloadImage.GetAttribute("baseURI"); //"E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg"
-            //string productLable2 = downloadImage.SetAttribute("baseURI", "E:/Apriorit/Selenium/HomeTask/REPO/_HomeTaskSeleniumProject/Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
-            //downloadImage.SendKeys("Trump-rubber-duck-Amsterdam-Duck-Store.jpg");
-            // E:\Apriorit\Selenium\HomeTask\HomeTaskSeleniumProject - копия\Trump - rubber - duck - Amsterdam - Duck - Store.jpg
             
-
             IWebElement datePickerFrom = Browser.FindElement(By.Name("date_valid_from"));
             datePickerFrom.SendKeys("10092019");
 
@@ -341,7 +293,7 @@ namespace HomeTaskSeleniumProject.Tests
             IWebElement InformationTab = Browser.FindElement(By.XPath("//a[contains(@href,'#tab-information')]"));
             InformationTab.Click();
 
-            IWebElement ManufactureDropdown = Browser.FindElement(By.XPath("//select[contains(@name,'manufacturer_id')]")); //option[contains(@value,'1')]
+            IWebElement ManufactureDropdown = Browser.FindElement(By.XPath("//select[contains(@name,'manufacturer_id')]"));
             ManufactureDropdown.Click();
 
             IWebElement ManufacturerDropdownValue = ManufactureDropdown.FindElement(By.XPath("//*[@id='tab-information']/table/tbody/tr[1]/td/select/option[2]"));
@@ -379,8 +331,6 @@ namespace HomeTaskSeleniumProject.Tests
             IWebElement SaveButton = Browser.FindElement(By.XPath("//button[contains(@name,'save')]"));
             SaveButton.Click();
             
-
-
             List <IWebElement> ItemProductsNameAfter = Browser.FindElements(By.XPath("//table[contains(@class,'dataTable')]/tbody/tr/td[3]/a")).ToList();
             List<string> ItemProductsNameTextAfter = ItemProductsNameAfter.Select(_ => _.Text).ToList();
             int CountAfterItemProductsNameText = ItemProductsNameTextAfter.Count;

@@ -89,8 +89,8 @@ E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProj
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.framework.pdb
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\nunit.framework.xml
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\bin\Debug\WebDriver.xml
-E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csproj.CoreCompileInputs.cache
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csproj.CopyComplete
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.dll
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.pdb
+E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
