@@ -94,3 +94,6 @@ E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProj
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.dll
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.pdb
 E:\Apriorit\Selenium\HomeTask\REPO\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
+D:\Apriorit\Selenium courses\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.csprojAssemblyReference.cache
+D:\Apriorit\Selenium courses\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.dll
+D:\Apriorit\Selenium courses\_HomeTaskSeleniumProject\HomeTaskSeleniumProject\obj\Debug\HomeTaskSeleniumProject.pdb

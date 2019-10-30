@@ -73,8 +73,7 @@ namespace HomeTaskSeleniumProject.Tests
                 //Assert.IsTrue(Sticker.Displayed);
                 //Assert.AreEqual(Products.Count, Stickers.Count/*, "Not all products are with stickers"*/);
                //Assert.IsTrue(Products.SequenceEqual(Stickers), "Not all products are with stickers");
-                Assert.IsTrue(Products.Count.Equals(Stickers.Count), "Not all products are with stickers");
-                
+                Assert.IsTrue(Products.Count.Equals(Stickers.Count), "Not all products are with stickers");                
             }    
             
         }
